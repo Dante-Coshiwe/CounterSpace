@@ -1,0 +1,84 @@
+<div class="cs-page ide-tutorials-page">
+  <section class="mission-header cs-glass-section">
+    <div>
+      <p class="cs-eyebrow">IDE path</p>
+      <h1 class="cs-h1">C-SLIDE robotics missions</h1>
+      <p class="cs-lead">
+        Build the R3 kit first, then program it with C-SLIDE blocks, simulator goals, and saved progress.
+      </p>
+    </div>
+    <div class="progress-pill">
+      <strong>{{ completedCount }}/{{ tutorials.length }}</strong>
+      <span>complete</span>
+    </div>
+  </section>
+
+  <p class="save-note" *ngIf="message" [class.error]="isError">{{ message }}</p>
+
+  <section class="current-mission cs-glass-section">
+    <div>
+      <p class="cs-eyebrow">Now doing</p>
+      <h2>{{ activeTutorial.title }}</h2>
+      <p>{{ activeTutorial.goal }}</p>
+    </div>
+    <div class="goal-chip">
+      <span>End goal</span>
+      <strong>{{ activeTutorial.outcome }}</strong>
+    </div>
+  </section>
+
+  <section class="missions">
+    <article
+      class="cs-card"
+      *ngFor="let tutorial of tutorials; let index = index"
+      [class.mission-done]="isComplete(tutorial.id)"
+    >
+      <div class="mission-top">
+        <span class="mission-number">{{ index + 1 }}</span>
+        <span class="time">{{ tutorial.time }}</span>
+      </div>
+
+      <h2 class="cs-h3">{{ tutorial.title }}</h2>
+      <p class="cs-lead">{{ tutorial.goal }}</p>
+      <p class="mission-outcome">{{ tutorial.outcome }}</p>
+
+      <div class="block-tags">
+        <span *ngFor="let block of tutorial.blocks">{{ block }}</span>
+      </div>
+
+      <ol>
+        <li *ngFor="let step of tutorial.steps">{{ step }}</li>
+      </ol>
+
+      <div class="mission-actions">
+        <button class="cs-btn cs-btn--ghost" type="button" (click)="startTutorial(tutorial)">
+          Set current
+        </button>
+        <a class="cs-btn cs-btn--primary" routerLink="/ide" (click)="startTutorial(tutorial)">Open IDE</a>
+        <button class="cs-btn cs-btn--ghost" type="button" (click)="markComplete(tutorial.id)">
+          {{ isComplete(tutorial.id) ? 'Completed' : 'Mark complete' }}
+        </button>
+      </div>
+    </article>
+  </section>
+
+  <section class="achievement-screen" *ngIf="celebrationTutorial">
+    <span
+      class="confetti"
+      *ngFor="let piece of confettiPieces"
+      [style.left.%]="(piece * 23) % 100"
+      [style.animationDelay.ms]="piece * 38"
+    ></span>
+    <div class="achievement-card">
+      <p class="cs-eyebrow">Mission achieved</p>
+      <h2>{{ celebrationTutorial.title }}</h2>
+      <p>{{ celebrationTutorial.outcome }}</p>
+      <div class="achievement-actions">
+        <a class="cs-btn cs-btn--primary" routerLink="/ide" (click)="closeCelebration()">Keep building</a>
+        <button class="cs-btn cs-btn--ghost" type="button" (click)="closeCelebration()">Close</button>
+      </div>
+    </div>
+  </section>
+
+  <app-footer></app-footer>
+</div>

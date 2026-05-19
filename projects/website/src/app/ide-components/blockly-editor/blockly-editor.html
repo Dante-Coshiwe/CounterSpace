@@ -1,0 +1,64 @@
+<div class="blockly-editor-container">
+  <section class="intro-guide" *ngIf="showIntroGuide">
+    <div>
+      <p>First time in Blockly?</p>
+      <h4>How C-SLIDE blocks work</h4>
+      <ol>
+        <li><strong>Movement</strong> blocks control your simulator truck path.</li>
+        <li><strong>R3 Kit</strong> blocks generate LED, motor, sensor, and servo sketch code.</li>
+        <li><strong>Lights</strong> blocks manage colorful virtual and physical light effects.</li>
+        <li><strong>Text and Sound</strong> blocks add serial messages and tone feedback.</li>
+        <li>Use top toolbar <strong>Save/Open</strong> to keep projects in your account.</li>
+      </ol>
+    </div>
+    <button class="guide-close" type="button" (click)="dismissIntroGuide()">Start Building</button>
+  </section>
+
+  <div class="editor-heading">
+    <div>
+      <p>C-SLIDE workspace</p>
+      <h3>Build, simulate, and save your robotics project</h3>
+    </div>
+    <div class="editor-actions">
+      <label class="import-btn">
+        Import XML
+        <input type="file" accept=".xml,text/xml" (change)="importXml($event)" />
+      </label>
+      <button class="secondary-btn" type="button" (click)="exportXml()">Export XML</button>
+      <button class="clear-btn" type="button" (click)="clearWorkspace()">Clear</button>
+    </div>
+  </div>
+
+  <div id="blocklyDiv"></div>
+
+  <div class="generated-code">
+    <h4>Simulator command log</h4>
+    <pre>{{ generatedCode }}</pre>
+  </div>
+
+  <div class="generated-code arduino-code">
+    <div class="arduino-header">
+      <h4>Arduino UNO R3 sketch</h4>
+      <button type="button" class="secondary-btn" (click)="copyArduinoCode()">Copy sketch</button>
+    </div>
+    <pre>{{ arduinoCode }}</pre>
+  </div>
+
+  <div class="generated-code board-panel">
+    <div class="arduino-header">
+      <h4>Connected Arduino boards</h4>
+      <button type="button" class="secondary-btn" (click)="connectBoard()">Connect board</button>
+      <button type="button" class="secondary-btn" (click)="refreshBoards()">Refresh</button>
+    </div>
+    <p class="board-message">{{ boardMessage }}</p>
+    <div class="board-list" *ngIf="boardConnections.length > 0">
+      <article *ngFor="let board of boardConnections">
+        <span class="board-status" [class.connected]="board.status === 'connected'"></span>
+        <div>
+          <strong>{{ board.name }}</strong>
+          <small>{{ board.port }} · {{ board.source }} · {{ board.lastSeen }}</small>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="cs-page signup-page">
+  <div class="signup-card cs-card">
+    <p class="cs-eyebrow">Create account</p>
+    <h1 class="cs-h1">Start saving your projects</h1>
+    <p class="cs-lead">Sign up once to save Blockly programs and reopen them anytime.</p>
+
+    <form (ngSubmit)="submit()" class="signup-form">
+      <label class="cs-field">
+        Display name
+        <input class="cs-input" [(ngModel)]="username" name="username" type="text" autocomplete="name" />
+      </label>
+
+      <label class="cs-field">
+        Email
+        <input class="cs-input" [(ngModel)]="email" name="email" type="email" autocomplete="email" />
+      </label>
+
+      <label class="cs-field">
+        Password
+        <input class="cs-input" [(ngModel)]="password" name="password" type="password" autocomplete="new-password" />
+      </label>
+
+      <button class="cs-btn cs-btn--primary" type="submit" [disabled]="isBusy">
+        {{ isBusy ? 'Creating account...' : 'Create account' }}
+      </button>
+    </form>
+
+    <p class="signup-message" *ngIf="message" [class.error]="isError">{{ message }}</p>
+    <a class="signup-back" routerLink="/home">Back to home</a>
+  </div>
+</div>

@@ -1,0 +1,148 @@
+$primary-color: #5c81a6;
+$primary-hover: #3a5f7c;
+$danger-color: #d9534f;
+$danger-hover: #b94442;
+$border-color: #ccc;
+$bg-light: #f9f9f9;
+$code-bg: #f3f3f3;
+
+.blockly-editor-container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 10px;
+  margin: 20px;
+  overflow: hidden; // prevents horizontal scrolling
+  flex-wrap: nowrap; // keeps side-by-side layout
+
+  // Top section (Blockly + Simulation side-by-side)
+  .top-section {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 20px;
+    
+
+    // Blockly area
+    .blockly-area {
+      position: relative;
+      flex: 0 0 40%;
+      min-width: 100px;
+      position: relative;
+
+      #blocklyDiv {
+        height: 500px;
+        width: 100%;
+        background-color: $bg-light;
+        border: 2px solid $border-color;
+        border-radius: 8px;
+      }
+
+      .clear-btn {
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        padding: 6px 12px;
+        font-size: 13px;
+        border: none;
+        border-radius: 6px;
+        background-color: $danger-color;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.2s;
+
+        &:hover {
+          background-color: $danger-hover;
+        }
+      }
+    }
+
+    // Simulation area
+    .simulation-container {
+      flex: 0 0 60%;
+      background-color: $bg-light;
+      border: 2px solid $border-color;
+      border-radius: 8px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+
+      .simulation-controls {
+        margin-bottom: 10px;
+
+        button {
+          padding: 8px 16px;
+          border: none;
+          border-radius: 6px;
+          background-color: $primary-color;
+          color: white;
+          cursor: pointer;
+          transition: background-color 0.2s;
+
+          &:hover {
+            background-color: $primary-hover;
+          }
+        }
+      }
+
+      canvas {
+        background-color: #fff;
+        border: 1px solid #999;
+        border-radius: 4px;
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+  // Middle section (Generate + Upload buttons)
+  .mid-controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    button {
+      padding: 8px 16px;
+      font-size: 14px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      background-color: $primary-color;
+      color: white;
+      transition: background-color 0.2s;
+
+      &:hover {
+        background-color: $primary-hover;
+      }
+    }
+  }
+
+  // Generated code preview
+  .code-preview {
+    width: 90%;
+    max-width: 900px;
+
+    pre {
+      background-color: $code-bg;
+      padding: 10px;
+      border-radius: 6px;
+      max-height: 300px;
+      overflow-y: auto;
+      border: 1px solid $border-color;
+    }
+  }
+
+  // Connected Arduino boards
+  .connected-boards {
+    width: 90%;
+    max-width: 900px;
+    background-color: #fafafa;
+    border: 1px solid $border-color;
+    border-radius: 6px;
+    padding: 10px;
+  }
+}

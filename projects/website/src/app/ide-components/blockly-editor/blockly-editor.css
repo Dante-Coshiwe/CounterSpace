@@ -1,0 +1,255 @@
+.blockly-editor-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cs-space-3, 12px);
+  min-height: 100%;
+  height: 100%;
+  padding: var(--cs-space-4, 14px);
+  box-sizing: border-box;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(232, 246, 255, 0.93));
+  border-radius: var(--cs-radius-md, 14px);
+}
+
+.intro-guide {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: flex-start;
+  border-radius: 10px;
+  padding: 14px;
+  background: linear-gradient(135deg, rgba(239, 71, 111, 0.12), rgba(93, 214, 255, 0.15));
+  border: 1px solid rgba(20, 33, 61, 0.12);
+}
+
+.intro-guide p {
+  margin: 0 0 6px;
+  color: #ff3b7f;
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.intro-guide h4 {
+  margin: 0 0 8px;
+  color: #14213d;
+}
+
+.intro-guide ol {
+  margin: 0;
+  padding-left: 18px;
+  color: #34495e;
+  line-height: 1.5;
+}
+
+.guide-close {
+  min-height: 38px;
+  border: 0;
+  border-radius: 8px;
+  padding: 0 14px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #ff3b7f, #00a6fb);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.editor-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+}
+
+.editor-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.editor-heading p,
+.editor-heading h3 {
+  margin: 0;
+}
+
+.editor-heading p {
+  color: #ff3b7f;
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.editor-heading h3 {
+  color: #14213d;
+  font-size: 1.1rem;
+}
+
+#blocklyDiv {
+  flex: 1 1 auto;
+  min-height: 560px;
+  height: min(72vh, 760px);
+  width: 100%;
+  border: 2px solid rgba(0, 166, 251, 0.24);
+  border-radius: 8px;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+:host ::ng-deep .blocklyToolboxDiv {
+  background: linear-gradient(180deg, #f7fcff, #eef8ff);
+  border-right: 1px solid rgba(20, 33, 61, 0.12);
+}
+
+:host ::ng-deep .blocklyTreeRow {
+  border-radius: 8px;
+  margin: 4px 8px;
+  min-height: 34px;
+}
+
+:host ::ng-deep .blocklyTreeLabel {
+  font-weight: 800;
+}
+
+:host ::ng-deep .blocklyFlyoutBackground {
+  fill: #f9fcff;
+  fill-opacity: 0.98;
+}
+
+:host ::ng-deep .blocklyMainBackground {
+  stroke: transparent;
+}
+
+.clear-btn,
+.secondary-btn,
+.import-btn {
+  min-height: max(38px, var(--cs-tap-min, 44px));
+  padding: 0 14px;
+  border-radius: 8px;
+  border: none;
+  color: #ffffff;
+  font-weight: 900;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+
+.clear-btn {
+  background-color: #ef476f;
+}
+
+.clear-btn:hover {
+  background-color: #d8325a;
+}
+
+.secondary-btn,
+.import-btn {
+  background: #00a6fb;
+}
+
+.secondary-btn:hover,
+.import-btn:hover {
+  background: #008bd1;
+}
+
+.import-btn input {
+  display: none;
+}
+
+.generated-code {
+  background-color: #102133;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 12px;
+  max-height: 170px;
+  overflow-y: auto;
+  color: #d7e7f5;
+}
+
+.arduino-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.arduino-header h4 {
+  margin: 0;
+}
+
+.generated-code h4 {
+  margin: 0;
+  color: #ffd166;
+}
+
+.generated-code pre {
+  margin: 0;
+  white-space: pre-wrap;
+  font-size: 0.86rem;
+}
+
+.arduino-code h4 {
+  color: #06d6a0;
+}
+
+.board-panel h4 {
+  color: #5dd6ff;
+}
+
+.board-message {
+  margin: 0 0 10px;
+  color: #d7e7f5;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.board-list {
+  display: grid;
+  gap: 8px;
+}
+
+.board-list article {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+  padding: 10px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.board-list strong,
+.board-list small {
+  display: block;
+}
+
+.board-list small {
+  margin-top: 2px;
+  color: #b9cbe0;
+  overflow-wrap: anywhere;
+}
+
+.board-status {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fbbf24;
+  box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.14);
+}
+
+.board-status.connected {
+  background: #34d399;
+  box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.14);
+}
+
+@media (max-width: 720px) {
+  .intro-guide,
+  .editor-heading,
+  .arduino-header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  #blocklyDiv {
+    min-height: 58vh;
+  }
+}

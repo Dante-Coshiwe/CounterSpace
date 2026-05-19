@@ -1,0 +1,73 @@
+.tutorials-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cs-space-8);
+  padding-bottom: var(--cs-space-10);
+}
+
+.tutorials-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--cs-space-6);
+  align-items: end;
+  padding: clamp(var(--cs-space-8), 6vw, var(--cs-space-12)) clamp(var(--cs-space-4), 4vw, var(--cs-space-8));
+}
+
+.tutorials-hero .cs-btn {
+  align-self: end;
+  white-space: nowrap;
+}
+
+.tutorial-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--cs-space-4);
+}
+
+.tutorial-cards article {
+  cursor: pointer;
+  transition: box-shadow 0.18s ease, transform 0.12s ease;
+}
+
+.tutorial-cards article:not(.soon):hover {
+  box-shadow: var(--cs-shadow-lg);
+}
+
+.tutorial-cards article.soon {
+  cursor: default;
+  opacity: 0.85;
+}
+
+.card-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 52px;
+  min-height: 32px;
+  padding: 0 var(--cs-space-3);
+  border-radius: var(--cs-radius-pill);
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: #fff;
+  background: linear-gradient(165deg, #0f172a, #334155);
+}
+
+.tutorial-cards .cs-h3 {
+  margin-top: var(--cs-space-4);
+}
+
+@media (max-width: 760px) {
+  .tutorials-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .tutorials-hero .cs-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .tutorial-cards {
+    grid-template-columns: 1fr;
+  }
+}

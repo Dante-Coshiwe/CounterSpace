@@ -1,0 +1,13 @@
+<div class="cs-route--ide">
+<app-toolbar>
+  <div class="ide-container">
+    <div class="editor-wrapper">
+      <app-blockly-editor #projectCode (commandsGenerated)="onCommandsGenerated($event)"></app-blockly-editor>
+    </div>
+
+    <div class="simulation-wrapper">
+      <app-simulation-view [movementQueue]="movementCommands"></app-simulation-view>
+    </div>
+  </div>
+</app-toolbar>
+</div>

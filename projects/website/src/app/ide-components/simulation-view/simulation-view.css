@@ -1,0 +1,89 @@
+.simulation-area {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cs-space-3, 12px);
+  height: 100%;
+  min-height: 100%;
+  padding: var(--cs-space-4, 14px);
+  background: linear-gradient(180deg, rgba(246, 251, 255, 0.96), rgba(255, 255, 255, 0.88));
+  border-radius: var(--cs-radius-md, 14px);
+}
+
+.simulation-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--cs-space-3);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.simulation-heading p,
+.simulation-heading h3 {
+  margin: 0;
+}
+
+.simulation-heading p {
+  color: #ff3b7f;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.simulation-heading h3 {
+  color: #0f172a;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.simulation-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--cs-space-2);
+}
+
+.simulation-controls button {
+  min-height: var(--cs-tap-min, 44px);
+  border: 0;
+  border-radius: var(--cs-radius-pill, 999px);
+  padding: 0 var(--cs-space-4);
+  color: #0f172a;
+  background: #fbbf24;
+  font-weight: 800;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.simulation-controls button:first-child {
+  background: #34d399;
+}
+
+#robotCanvas {
+  width: 100%;
+  flex: 1;
+  min-height: clamp(420px, 62vh, 760px);
+  height: 100%;
+  border: 1px solid rgba(0, 166, 251, 0.28);
+  border-radius: 8px;
+  background: #f5f7fb;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.72);
+  display: block;
+  touch-action: none;
+}
+
+@media (max-width: 980px) {
+  #robotCanvas {
+    min-height: 48vh;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 700px) {
+  .simulation-area {
+    padding: var(--cs-space-3, 12px);
+  }
+
+  #robotCanvas {
+    min-height: 58vh;
+  }
+}

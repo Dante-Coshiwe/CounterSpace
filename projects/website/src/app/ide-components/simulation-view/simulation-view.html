@@ -1,0 +1,14 @@
+<div class="simulation-area">
+  <div class="simulation-heading">
+    <div>
+      <p>Simulator</p>
+      <h3>Virtual truck track</h3>
+    </div>
+    <div class="simulation-controls">
+      <button (click)="startSimulation()">Run</button>
+      <button (click)="stopSimulation()">Stop</button>
+      <button (click)="resetSimulation()">Reset</button>
+    </div>
+  </div>
+  <canvas #robotCanvas id="robotCanvas" width="900" height="520"></canvas>
+</div>

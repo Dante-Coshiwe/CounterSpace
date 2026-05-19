@@ -1,0 +1,44 @@
+.signup-page {
+  display: grid;
+  place-items: center;
+  min-height: min(70dvh, 640px);
+  padding-block: var(--cs-space-10);
+}
+
+.signup-card {
+  width: min(480px, 100%);
+}
+
+.signup-card .cs-h1 {
+  margin-bottom: var(--cs-space-3);
+}
+
+.signup-form {
+  display: grid;
+  gap: var(--cs-space-4);
+  margin-top: var(--cs-space-6);
+}
+
+.signup-message {
+  margin-top: var(--cs-space-4);
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: #15803d;
+}
+
+.signup-message.error {
+  color: var(--cs-color-danger);
+}
+
+.signup-back {
+  display: inline-block;
+  margin-top: var(--cs-space-5);
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.signup-back:hover {
+  text-decoration: underline;
+}
