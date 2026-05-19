@@ -22,7 +22,8 @@
                 "input": "projects/website/public"
               }
             ],
-            "styles": ["projects/website/src/styles.scss"]
+            "styles": ["projects/website/src/styles.scss"],
+            "outputPath": "dist/website"
           },
           "configurations": {
             "production": {
